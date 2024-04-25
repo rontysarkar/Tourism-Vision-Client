@@ -32,12 +32,12 @@ export const router = createBrowserRouter([
         element: <MyList />
       },
       {
-        path: '/signIn',
+        path: '/login',
         element: <LogIn/>
 
       },
       {
-        path: '/signUp',
+        path: '/register',
         element: <Register />
       }
     ]

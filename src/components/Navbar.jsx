@@ -50,7 +50,7 @@ const Navbar = () => {
           isPending
             ? "pending"
             : isActive
-            ? "text-[#FF497C] border-b-4 border-[#FF497C] font-bold"
+            ? "text-[#FF497C] border-b-4  border-[#FF497C] font-bold"
             : "hover:text-[#FF497C] font-bold"
         }
         to={"/myList"}
@@ -59,10 +59,11 @@ const Navbar = () => {
           <span>My List</span>
         </li>
       </NavLink>
+      
     </>
   );
   return (
-    <div className="navbar bg-base-100 shadow-lg 2xl:px-32">
+    <div className="navbar bg-white shadow-lg  2xl:px-32">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -94,8 +95,8 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1 ">{allLinks}</ul>
       </div>
       <div className="navbar-end space-x-4  ">
-        <Link className="btn">Login</Link>
-        <Link className="btn">Register</Link>
+        <Link to={'/login'} className="btn">Login</Link>
+        <Link to={'register'} className="btn">Register</Link>
         <div className=" relative group  ">
           <div
             tabIndex={0}
