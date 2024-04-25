@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form"
+import { Link } from "react-router-dom";
 const Register = () => {
     const { register, handleSubmit, } = useForm()
     const onSubmit = (data) => console.log(data)
@@ -7,15 +8,27 @@ const Register = () => {
             <section className="p-6 dark:bg-gray-100 dark:text-gray-800 mt-10  ">
                 <div className="container grid gap-6 mx-auto text-center lg:grid-cols-2 xl:grid-cols-5 ">
 
-                    <img src="https://i.ibb.co/ZVx3dGx/depositphotos-114341588-stock-illustration-vacation-and-travel.webp" alt="" className="object-cover w-full rounded-md xl:col-span-3 dark:bg-gray-500" />
-                    <div className="w-full px-6 py-16 rounded-md sm:px-12 md:px-16 xl:col-span-2 dark:bg-gray-50 space-y-4" >
+                    <img src="https://i.ibb.co/ZVx3dGx/depositphotos-114341588-stock-illustration-vacation-and-travel.webp" alt="" className="object-cover w-full rounded-md xl:col-span-3 dark:bg-gray-500 mt-10" />
+                    <div className="w-full px-6 py-10 rounded-md sm:px-12 md:px-16 xl:col-span-2 dark:bg-gray-50 space-y-2" >
 
                         <div>
-                            <h1 className="text-3xl font-extrabold text-start  dark:text-gray-900">Sign in to Tourism Vision </h1>
+                            <h1 className="text-3xl font-extrabold text-start pb-2 dark:text-gray-900">Create Account </h1>
                             <p className="text-start pt-2 font-semibold opacity-60 pl-2">Enter your details below</p>
                         </div>
 
-                        <form onSubmit={handleSubmit(onSubmit)} className="self-stretch space-y-4 ">
+                        <form onSubmit={handleSubmit(onSubmit)} className="self-stretch space-y-3 ">
+                            <div>
+                                <label className="label">
+                                    <span className="label-text pl-1">Name</span>
+                                </label>
+                                <input {...register("name")} type="text" placeholder="Enter Your Name" className="w-full rounded-md focus:ring focus:dark:ring-violet-600 dark:border-gray-300 h-14 px-4" />
+                            </div>
+                            <div>
+                                <label className="label">
+                                    <span className="label-text pl-1">Photo Url</span>
+                                </label>
+                                <input {...register("image")} type="text" placeholder="Photo Url" className="w-full rounded-md focus:ring focus:dark:ring-violet-600 dark:border-gray-300 h-14 px-4" />
+                            </div>
                             <div>
                                 <label className="label">
                                     <span className="label-text pl-1">Email</span>
@@ -49,8 +62,8 @@ const Register = () => {
                                 </svg>
                             </button>
                         </div>
-                        <p className="text-xs text-center sm:px-6 dark:text-gray-600">Don't have an account?
-                            <a rel="noopener noreferrer" href="#" className="underline dark:text-gray-800">Sign up</a>
+                        <p className="text-xs text-center sm:px-6 dark:text-gray-600">You have an account?
+                            <Link to={'/login'} rel="noopener noreferrer" href="#" className="underline dark:text-gray-800">Sign in</Link>
                         </p>
                     </div>
                 </div>
