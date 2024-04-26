@@ -1,6 +1,6 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import PropTypes from 'prop-types';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup,GoogleAuthProvider } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, onAuthStateChanged, signOut, updateProfile } from "firebase/auth";
 import { auth } from "../firebase/firebase.config";
 
 
@@ -9,13 +9,19 @@ export const AuthContext = createContext(null)
 const AuthProvider = ({ children }) => {
     const [user,setUser] = useState(null)
     const [loading,setLoading] = useState(true)
-    const googleProvider = new GoogleAuthProvider();
+    
 
+    console.log(user)
     // create account 
 
     const createAccount = (email,password)=>{
         setLoading(true)
         return createUserWithEmailAndPassword(auth,email,password)
+    }
+    // update Profile 
+
+    const userProfileUpdate = (name,image) =>{
+        return updateProfile(auth.currentUser,{displayName: name, photoURL:image})
     }
 
     //  Login 
@@ -26,12 +32,27 @@ const AuthProvider = ({ children }) => {
     }
 
     // sign in with google 
-    const signInWithGoogle =()=>{
-        return signInWithPopup(auth,googleProvider)
+    const signInWithPop =(provider)=>{
+        return signInWithPopup(auth,provider)
     }
 
     // on auth state change 
+     useEffect(()=>{
+        const unSubscribe = onAuthStateChanged(auth,(currentUser)=>{
+            setLoading(false)
+            setUser(currentUser)
+            
+        });
+        return ()=>{
+            unSubscribe()
+        }
+     },[])
 
+    //  Log Out 
+
+    const LogOut = ()=>{
+        return signOut(auth)
+    }
     
     
 
@@ -40,8 +61,11 @@ const AuthProvider = ({ children }) => {
         user,
         createAccount,
         logInUser,
-        signInWithGoogle,
+        signInWithPop,
         loading,
+        LogOut,
+        userProfileUpdate,
+        setUser
     }
     return (
         <AuthContext.Provider value={authInfo}>
@@ -51,6 +75,7 @@ const AuthProvider = ({ children }) => {
 };
 
 export default AuthProvider;
+
 AuthProvider.propTypes = {
     children: PropTypes.node
 }

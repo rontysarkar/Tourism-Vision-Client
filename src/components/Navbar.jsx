@@ -1,6 +1,11 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+
 
 const Navbar = () => {
+  const {user,LogOut} = useContext(AuthContext)
+  console.log(user)
   const allLinks = (
     <>
       <NavLink
@@ -61,7 +66,18 @@ const Navbar = () => {
       </NavLink>
       
     </>
+  
   );
+
+  const handleLogOut = ()=>{
+    LogOut()
+    .then(()=>{
+      console.log('logout')
+    })
+  }
+
+
+
   return (
     <div className="navbar bg-white shadow-lg  2xl:px-32">
       <div className="navbar-start">
@@ -95,9 +111,10 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1 ">{allLinks}</ul>
       </div>
       <div className="navbar-end space-x-4  ">
-        <Link to={'/login'} className="btn">Login</Link>
-        <Link to={'register'} className="btn">Register</Link>
-        <div className=" relative group  ">
+        {/* <Link to={'/login'} className="btn">Login</Link> */}
+        {/* <Link to={'register'} className="btn">Register</Link> */}
+        {
+          user ? <div className=" relative group  ">
           <div
             tabIndex={0}
             role="button"
@@ -106,28 +123,23 @@ const Navbar = () => {
             <div className="w-10 rounded-full ">
               <img
                 alt="Tailwind CSS Navbar component"
-                src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                src={user.photoURL}
               />
             </div>
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm z-10  absolute right-12 -bottom-16 mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 hidden group-hover:block "
+            className="menu menu-sm z-10  absolute right-12 -bottom-16 mt-3  p-2 shadow bg-base-100 rounded-box w-52 hidden group-hover:block "
           >
-            <li>
-              <a className="justify-between">
-                Profile
-                <span className="badge">New</span>
-              </a>
+            <li className=" py-4   text-center font-bold">
+              {user.displayName}
             </li>
-            <li>
-              <a>Settings</a>
-            </li>
-            <li>
-              <a>Logout</a>
+            <li  onClick={handleLogOut}>
+              <button className="bg-primary text-center w-22 px-6 mx-auto text-white ">Logout</button>
             </li>
           </ul>
-        </div>
+        </div> : <Link to={'/login'}><button className="w-24 px-6 bg-primary text-white py-1 rounded-sm">Login</button></Link>
+        }
       </div>
     </div>
   );
