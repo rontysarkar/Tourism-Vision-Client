@@ -36,7 +36,7 @@ const Navbar = () => {
           isPending
             ? "pending"
             : isActive
-            ? "text-[#FF497C] border-b-4 border-[#FF497C] font-bold"
+            ? "text-[#FF497C] border-b-4 border-[#FF497C] font-bold "
             : "hover:text-[#FF497C] font-bold"
         }
         to={"/addTouristsSpot"}
@@ -50,7 +50,7 @@ const Navbar = () => {
           isPending
             ? "pending"
             : isActive
-            ? "text-[#FF497C] border-b-4  border-[#FF497C] font-bold"
+            ? "text-[#FF497C] border-b-4  border-[#FF497C] font-bold  "
             : "hover:text-[#FF497C] font-bold"
         }
         to={"/myList"}
@@ -89,7 +89,7 @@ const Navbar = () => {
             {allLinks}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">Tourism Vision</a>
+        <a className="btn btn-ghost text-2xl font-days ">Tourism Vision</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 ">{allLinks}</ul>

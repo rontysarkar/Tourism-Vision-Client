@@ -14,7 +14,7 @@ const LogIn = () => {
                     <div className="w-full px-6 py-12 rounded-md sm:px-12 md:px-16 xl:col-span-2 dark:bg-gray-50 space-y-4" >
 
                         <div>
-                            <h1 className="text-3xl font-extrabold text-start  dark:text-gray-900">Sign in to Tourism Vision </h1>
+                            <h1 className="text-3xl font-extrabold text-start pb-2  dark:text-gray-900 font-days">Sign in to Tourism Vision </h1>
                             <p className="text-start pt-2 font-semibold opacity-60 pl-2">Enter your details below</p>
                         </div>
 
