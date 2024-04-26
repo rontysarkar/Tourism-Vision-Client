@@ -21,7 +21,7 @@ const Banner = () => {
   return (
     <>
       <Swiper
-        modules={[Navigation, Pagination, A11y, EffectCards , Autoplay]}
+        modules={[Navigation, Pagination, A11y, EffectCards, Autoplay]}
         spaceBetween={50}
         autoplay={{
           delay: 3000,
@@ -45,9 +45,9 @@ const Banner = () => {
           <img className='w-full h-[750px] object-cover' src={img2} alt="" />
         </SwiperSlide>
         <SwiperSlide>
-        <h1 className='absolute text-6xl font-semibold top-80 right-[34%]  text-gray-100 hidden 2xl:flex  '>Explore Thai Jungle</h1>
+          <h1 className='absolute text-6xl font-semibold top-80 right-[34%]  text-gray-100 hidden 2xl:flex  '>Explore Thai Jungle</h1>
           <img className='w-full h-[750px] object-cover' src={img3} alt="" />
-          </SwiperSlide>
+        </SwiperSlide>
         <SwiperSlide><img className='w-full h-[750px] object-cover' src={img4} alt="" /></SwiperSlide>
 
 

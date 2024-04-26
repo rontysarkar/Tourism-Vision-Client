@@ -5,7 +5,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors:{
+        primary:'#ff681a'
+      },
+    },
     fontFamily:{
       poppins:["Poppins", "sans-serif"],
       days:[ "Days One", "sans-serif"],

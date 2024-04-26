@@ -8,8 +8,8 @@ const Navbar = () => {
           isPending
             ? "pending"
             : isActive
-            ? "text-[#FF497C] border-b-4 border-[#FF497C] font-bold"
-            : "hover:text-[#FF497C] font-bold"
+            ? "text-primary border-b-4  border-primary font-bold  "
+            : "hover:text-primary font-bold"
         }
         to={"/"}
       >
@@ -22,8 +22,8 @@ const Navbar = () => {
           isPending
             ? "pending"
             : isActive
-            ? "text-[#FF497C] border-b-4 border-[#FF497C] font-bold"
-            : "hover:text-[#FF497C] font-bold"
+            ? "text-primary border-b-4  border-primary font-bold  "
+            : "hover:text-primary font-bold"
         }
         to={"/allTouristsSpot"}
       >
@@ -36,8 +36,8 @@ const Navbar = () => {
           isPending
             ? "pending"
             : isActive
-            ? "text-[#FF497C] border-b-4 border-[#FF497C] font-bold "
-            : "hover:text-[#FF497C] font-bold"
+            ? "text-primary border-b-4  border-primary font-bold  "
+            : "hover:text-primary font-bold"
         }
         to={"/addTouristsSpot"}
       >
@@ -50,8 +50,8 @@ const Navbar = () => {
           isPending
             ? "pending"
             : isActive
-            ? "text-[#FF497C] border-b-4  border-[#FF497C] font-bold  "
-            : "hover:text-[#FF497C] font-bold"
+            ? "text-primary border-b-4  border-primary font-bold  "
+            : "hover:text-primary font-bold"
         }
         to={"/myList"}
       >
@@ -112,7 +112,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm   absolute right-12 -bottom-16 mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 hidden group-hover:block "
+            className="menu menu-sm z-10  absolute right-12 -bottom-16 mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 hidden group-hover:block "
           >
             <li>
               <a className="justify-between">
