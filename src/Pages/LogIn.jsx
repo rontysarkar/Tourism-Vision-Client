@@ -1,13 +1,16 @@
 /* eslint-disable react/no-unescaped-entities */
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form"
 import { Link } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
+import { VscEye, VscEyeClosed } from "react-icons/vsc";
 
 const LogIn = () => {
     const {logInUser,signInWithPop} = useContext(AuthContext)
     const { register, handleSubmit, } = useForm()
+    const [keyValue, setKeyValue] = useState('')
+    const [toggleEye, setToggleEye] = useState(false)
 
     const googleProvider = new GoogleAuthProvider()
     const githubProvider = new GithubAuthProvider();
@@ -64,7 +67,10 @@ const LogIn = () => {
                                 <label className="label">
                                     <span className="label-text pl-1">Password</span>
                                 </label>
-                                <input {...register("password",)} type="password" placeholder="Password" className="w-full rounded-md focus:ring focus:dark:ring-violet-600 dark:border-gray-300 h-14 px-4" />
+                                <input {...register("password",)} onChange={e => { setKeyValue(e.target.value) }} type={toggleEye ? 'text' : "password"} placeholder="Password" className="w-full rounded-md focus:ring focus:dark:ring-violet-600 dark:border-gray-300 h-14 px-4" />
+                                {
+                                    keyValue && <> { toggleEye ?  <VscEyeClosed onClick={() => setToggleEye(false)} className="text-2xl absolute top-12 right-5" /> : <VscEye onClick={() => setToggleEye(true)} className="text-2xl absolute top-12 right-5" /> }  </>
+                                }
                             </div>
                             <button type="submit" className="w-full py-2 font-semibold rounded dark:bg-primary dark:text-gray-50 btn">Login</button>
                         </form>

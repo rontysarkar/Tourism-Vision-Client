@@ -4,10 +4,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import toast from "react-hot-toast";
+import { VscEye, VscEyeClosed } from "react-icons/vsc";
 
 const Register = () => {
     const [registerError, setRegisterError] = useState('')
-    const { createAccount, signInWithPop,userProfileUpdate,setUser } = useContext(AuthContext)
+    const [keyValue, setKeyValue] = useState('')
+    const [toggleEye, setToggleEye] = useState(false)
+    const { createAccount, signInWithPop, userProfileUpdate, setUser } = useContext(AuthContext)
 
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
@@ -15,7 +18,8 @@ const Register = () => {
 
 
 
-    const { register, handleSubmit, } = useForm()
+    const { register, handleSubmit } = useForm()
+
     const onSubmit = (data) => {
         setRegisterError('')
         // console.log(data.password.length)
@@ -36,11 +40,11 @@ const Register = () => {
 
         createAccount(data.email, data.password)
             .then((result) => {
-                userProfileUpdate(data.name,data.image)
-                .then(()=>{
-                    setUser({displayName: data.name, photoURL:data.image})
-                    
-                })
+                userProfileUpdate(data.name, data.image)
+                    .then(() => {
+                        setUser({ displayName: data.name, photoURL: data.image })
+
+                    })
                 toast.success('You have successfully registered.')
                 navigate('/')
                 console.log(result.user)
@@ -72,6 +76,8 @@ const Register = () => {
                 console.error(error)
             })
     }
+
+
     return (
         <div className="grid items-center min-h-[calc(100vh-200px)]">
             <section className="p-6 dark:bg-gray-100 dark:text-gray-800 mt-10  ">
@@ -104,11 +110,14 @@ const Register = () => {
                                 </label>
                                 <input {...register("email")} type="email" placeholder="Email address" className="w-full rounded-md focus:ring focus:dark:ring-violet-600 dark:border-gray-300 h-14 px-4" />
                             </div>
-                            <div>
+                            <div className="relative">
                                 <label className="label">
                                     <span className="label-text pl-1">Password</span>
                                 </label>
-                                <input {...register("password",)} type="password" placeholder="Password" className="w-full rounded-md focus:ring focus:dark:ring-violet-600 dark:border-gray-300 h-14 px-4" />
+                                <input {...register("password",)} onChange={e => { setKeyValue(e.target.value) }} type={toggleEye ? 'text' : "password"} placeholder="Password" className=" w-full  rounded-md focus:ring focus:dark:ring-violet-600 dark:border-gray-300 h-14 px-4 " />
+                                {
+                                    keyValue && <> { toggleEye ?  <VscEyeClosed onClick={() => setToggleEye(false)} className="text-2xl absolute top-12 right-5" /> : <VscEye onClick={() => setToggleEye(true)} className="text-2xl absolute top-12 right-5" /> }  </>
+                                }
                             </div>
                             {
                                 registerError && <p className="text-red-600 mt-3">{registerError}</p>
