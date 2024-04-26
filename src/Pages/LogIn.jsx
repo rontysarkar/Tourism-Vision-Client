@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form"
 import { Link } from "react-router-dom";
 
 const LogIn = () => {
+    
     const { register, handleSubmit, } = useForm()
     const onSubmit = (data) => console.log(data)
     return (

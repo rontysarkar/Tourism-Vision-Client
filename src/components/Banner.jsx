@@ -34,8 +34,8 @@ const Banner = () => {
         className="mySwiper">
 
         <SwiperSlide  >
-          <h1 className='absolute text-6xl font-bold top-80 right-[9%]  text-white hidden 2xl:flex '>Maldives <span className='font-normal'>Last Minute</span></h1>
-          <h1 className='absolute text-xl font-bold top-[400px] right-[34%]   text-red-500 hidden 2xl:flex '>20% off in May</h1>
+          <h1 className='absolute text-6xl font-bold top-80 right-[9%]  text-white hidden 2xl:flex '>Maldives<span className='font-normal'>Last Minute</span></h1>
+          <h1 className='absolute text-xl font-bold top-[400px] right-[34%]   text-primary hidden 2xl:flex '>20% off in May</h1>
           <h1 className='absolute  top-[445px] right-[36%]   btn hidden 2xl:flex rounded-none '>Subscribe</h1>
           <img className='w-full h-[750px] object-cover ' src={img1} alt="" />
         </SwiperSlide>
