@@ -1,8 +1,19 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form"
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const AddTouristsSpot = () => {
+    const {user} = useContext(AuthContext)
     const { register, handleSubmit, } = useForm()
-    const onSubmit = (data) => console.log(data)
+    // console.log(user)
+
+    const onSubmit = (data) => {
+  
+      data['user_name'] = user.displayName
+      data['user_email'] = user.email
+      console.log(data)
+      
+    }
     return (
         <section className="p-6 dark:bg-gray-100 dark:text-gray-900 border  ">
             <form onSubmit={handleSubmit(onSubmit)} className="container flex flex-col mx-auto space-y-12 shadow-2xl">
@@ -19,19 +30,27 @@ const AddTouristsSpot = () => {
                             <input {...register("email")} type="email" placeholder="Email address" className="w-full rounded-md focus:ring focus:dark:ring-violet-600 dark:border-gray-300 h-14 px-4 border" />
                         </div> */}
                         <div className="col-span-full sm:col-span-3">
-                            <label  className="text-sm">Tourists Spot Name</label>
+                            <label className="text-sm">Tourists Spot Name</label>
                             <input {...register("tourists_spot_name")} type="text" placeholder="Tourists Spot Name" className="w-full rounded-md focus:ring focus:dark:ring-violet-600 dark:border-gray-300 h-14 px-4 border" />
                         </div>
                         <div className="col-span-full sm:col-span-3">
-                            <label  className="text-sm">Photo</label>
+                            <label className="text-sm">Photo</label>
                             <input {...register("image")} type="text" placeholder="Photo Url" className="w-full rounded-md focus:ring focus:dark:ring-violet-600 dark:border-gray-300 h-14 px-4 border" />
                         </div>
                         <div className="col-span-full sm:col-span-3">
-                            <label  className="text-sm">Country Name</label>
-                            <input {...register("country_Name")} type="text" placeholder="Country Name" className="w-full rounded-md focus:ring focus:dark:ring-violet-600 dark:border-gray-300 h-14 px-4 border" />
+                            <label className="text-sm">Country Name</label>
+                            <select {...register("country_Name")} type="text" placeholder="Country Name" className="w-full rounded-md focus:ring focus:dark:ring-violet-600 dark:border-gray-300 h-14 px-4 border" >
+                                <option defaultValue={"Select Country"}>Select Country</option>
+                                <option value="Bangladesh">Bangladesh</option>
+                                <option value="Thailand">Thailand</option>
+                                <option value="Indonesia">Indonesia</option>
+                                <option value="Malaysia">Malaysia</option>
+                                <option value="Vietnam">Vietnam</option>
+                                <option value="Cambodia">Cambodia</option>
+                            </select>
                         </div>
                         <div className="col-span-full sm:col-span-3">
-                            <label  className="text-sm">Average Cost</label>
+                            <label className="text-sm">Average Cost</label>
                             <input {...register("average_cost")} type="text" placeholder="Average Cost" className="w-full rounded-md focus:ring focus:dark:ring-violet-600 dark:border-gray-300 h-14 px-4 border" />
                         </div>
                         <div className="col-span-full">
@@ -47,36 +66,25 @@ const AddTouristsSpot = () => {
                             <input {...register("totalVisitorsPerYear")} type="text" placeholder="Total Visitors Per Year" className="w-full rounded-md focus:ring focus:dark:ring-violet-600 dark:border-gray-300 h-14 px-4 border" />
                         </div>
                         <div className="col-span-full sm:col-span-1">
+                            <label htmlFor="state" className="text-sm">Travel time</label>
+                            <input {...register("travel_time")} type='text' placeholder="Travel time" className="w-full rounded-md focus:ring focus:dark:ring-violet-600 dark:border-gray-300 h-14 px-4 border" >
+                            </input>
+                        </div>
+                        <div className="col-span-full sm:col-span-1">
                             <label htmlFor="state" className="text-sm">Seasonality</label>
                             <select {...register("seasonality")} type='text' placeholder="Select Season" className="w-full rounded-md focus:ring focus:dark:ring-violet-600 dark:border-gray-300 h-14 px-4 border" >
-                                <option defaultValue={"Select Time"}>Select Season</option>
+                                <option defaultValue={"Select Season"}>Select Season</option>
                                 <option value="summer">Summer</option>
                                 <option value="winter">Winter</option>
                             </select>
                         </div>
-                        <div className="col-span-full sm:col-span-1">
-                            <label htmlFor="state" className="text-sm">Travel time</label>
-                            <select {...register("travel_time")} type='text' placeholder="Travel time" className="w-full rounded-md focus:ring focus:dark:ring-violet-600 dark:border-gray-300 h-14 px-4 border" >
-                                <option defaultValue={"Select Time"}>Select Time</option>
-                                <option value="1 days">1 days</option>
-                                <option value="2 days">1 days</option>
-                                <option value="3 days">3 days</option>
-                                <option value="4 days">4 days</option>
-                                <option value="5 days">5 days</option>
-                                <option value="6 days">6 days</option>
-                                <option value="7 days">7 days</option>
-                                <option value="8 days">8 days</option>
-                                <option value="9 days">9 days</option>
-                                <option value="10 days">10 days</option>
-                                
-                            </select>
-                        </div>
+
                         <div className="col-span-full">
                             <input type="submit" value="Add Now" className="btn w-full mt-6  bg-primary" />
                         </div>
-                        
 
-                        
+
+
                     </div>
                 </div>
 
