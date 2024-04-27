@@ -20,7 +20,8 @@ export const router = createBrowserRouter([
       },
       {
         path: '/allTouristsSpot',
-        element: <AllTouristesSpot />
+        element: <AllTouristesSpot />,
+        loader: ()=> fetch('http://localhost:5000/tourists')
 
       },
       {

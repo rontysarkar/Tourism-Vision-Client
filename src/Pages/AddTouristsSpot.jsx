@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form"
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import Swal from 'sweetalert2'
 
 const AddTouristsSpot = () => {
     const {user} = useContext(AuthContext)
@@ -12,6 +13,25 @@ const AddTouristsSpot = () => {
       data['user_name'] = user.displayName
       data['user_email'] = user.email
       console.log(data)
+
+      fetch('http://localhost:5000/tourists',{
+        method:"POST",
+        headers:{
+            'content-type':'application/json'
+        },
+        body:JSON.stringify(data)
+      })
+      .then(res=>res.json())
+      .then(data=>{
+        console.log(data)
+        if(data.insertedId){
+            Swal.fire({
+                title: "Good job!",
+                text: "You clicked the button!",
+                icon: "success"
+              });
+        }
+      })
       
     }
     return (
