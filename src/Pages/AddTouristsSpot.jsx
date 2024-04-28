@@ -5,14 +5,16 @@ import Swal from 'sweetalert2'
 
 const AddTouristsSpot = () => {
     const {user} = useContext(AuthContext)
-    const { register, handleSubmit, } = useForm()
-    // console.log(user)
+    const { register, handleSubmit,reset } = useForm()
+    
+    
 
     const onSubmit = (data) => {
   
       data['user_name'] = user.displayName
       data['user_email'] = user.email
       console.log(data)
+      
 
       fetch('http://localhost:5000/tourists',{
         method:"POST",
@@ -26,10 +28,13 @@ const AddTouristsSpot = () => {
         console.log(data)
         if(data.insertedId){
             Swal.fire({
-                title: "Good job!",
-                text: "You clicked the button!",
+                title: "Successfully Add Tourists Spot ",
+                
                 icon: "success"
               });
+              
+              reset()
+              
 
         }
       })
@@ -38,7 +43,7 @@ const AddTouristsSpot = () => {
     return (
         <section className="p-6 dark:bg-gray-100 dark:text-gray-900 border  ">
             <form onSubmit={handleSubmit(onSubmit)} className="container flex flex-col mx-auto space-y-12 shadow-2xl">
-                <div className="  rounded-md shadow-sm  dark:bg-gray-50  bg-[#f4f3f0]   ">
+                <div className="  rounded-md shadow-sm  dark:bg-gray-50  bg-[#f4f3f0] py-20  ">
                     <h1 className="text-center text-3xl font-bold pt-6 opacity-80">Add New Tourists Spot</h1>
                     <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3 p-10 px-20 ">
 

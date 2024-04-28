@@ -9,9 +9,11 @@ export const AuthContext = createContext(null)
 const AuthProvider = ({ children }) => {
     const [user,setUser] = useState(null)
     const [loading,setLoading] = useState(true)
+    // // const [touristsSpots,setTouristsSpots] = useState([])
+    // const [spotsUpdateToggle,setSpotUpdateToggle] = useState(true)
     
 
-    console.log(user)
+    
     // create account 
 
     const createAccount = (email,password)=>{
@@ -41,6 +43,7 @@ const AuthProvider = ({ children }) => {
         const unSubscribe = onAuthStateChanged(auth,(currentUser)=>{
             setLoading(false)
             setUser(currentUser)
+            console.log(currentUser)
             
         });
         return ()=>{
@@ -56,18 +59,19 @@ const AuthProvider = ({ children }) => {
 
     // all tourists spots
 
-    const [touristsSpots,setTouristsSpots] = useState([])
+    
+    
     
 
-    useEffect(()=>{
-        fetch('http://localhost:5000/tourists')
-        .then(res=>res.json())
-        .then(data=>{
+    // useEffect(()=>{
+    //     fetch('http://localhost:5000/tourists')
+    //     .then(res=>res.json())
+    //     .then(data=>{
             
-            setTouristsSpots(data)
-        })
-        .catch()
-    },[])
+    //         setTouristsSpots(data)
+    //     })
+    //     .catch()
+    // },[spotsUpdateToggle])
     
     
 
@@ -81,7 +85,8 @@ const AuthProvider = ({ children }) => {
         LogOut,
         userProfileUpdate,
         setUser,
-        touristsSpots
+  
+        
     }
     return (
         <AuthContext.Provider value={authInfo}>

@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { Link } from "react-router-dom";
 
 export function BookingCard({ spot }) {
-    console.log(spot)
+    // console.log(spot)
     return (
         <Card className="w-full max-w-[26rem] shadow-lg mx-auto">
             <CardHeader floated={false} color="blue-gray">
@@ -32,13 +32,15 @@ export function BookingCard({ spot }) {
                     <Typography variant="h5" color="blue-gray" className="font-medium">
                         {spot.tourists_spot_name}
                     </Typography>
-                    
+
                 </div>
+                <h3 className="  font-days flex items-center  gap-2"><span className='text-primary opacity-80'>{spot.country_Name}</span></h3>
+
                 <Typography color="gray">
                     {spot.short_description.slice(0, 120)}....
                 </Typography>
                 <div className="group mt-8 inline-flex flex-wrap items-center gap-3">
-                    <Tooltip content="Material Tailwind">
+                    <Tooltip content="Material Tailwind "  >
                         <span className="cursor-pointer rounded-full border border-gray-900/5 bg-gray-900/5 p-3 text-gray-900 transition-colors hover:border-gray-900/10 hover:bg-gray-900/10 hover:!opacity-100 group-hover:opacity-70">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -56,6 +58,7 @@ export function BookingCard({ spot }) {
                             </svg>
                         </span>
                     </Tooltip>
+                    
                     <Tooltip content="Free wifi">
                         <span className="cursor-pointer rounded-full border border-gray-900/5 bg-gray-900/5 p-3 text-gray-900 transition-colors hover:border-gray-900/10 hover:bg-gray-900/10 hover:!opacity-100 group-hover:opacity-70">
                             <svg
