@@ -53,6 +53,21 @@ const AuthProvider = ({ children }) => {
     const LogOut = ()=>{
         return signOut(auth)
     }
+
+    // all tourists spots
+
+    const [touristsSpots,setTouristsSpots] = useState([])
+    
+
+    useEffect(()=>{
+        fetch('http://localhost:5000/tourists')
+        .then(res=>res.json())
+        .then(data=>{
+            
+            setTouristsSpots(data)
+        })
+        .catch()
+    },[])
     
     
 
@@ -65,7 +80,8 @@ const AuthProvider = ({ children }) => {
         loading,
         LogOut,
         userProfileUpdate,
-        setUser
+        setUser,
+        touristsSpots
     }
     return (
         <AuthContext.Provider value={authInfo}>

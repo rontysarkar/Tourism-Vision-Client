@@ -30,6 +30,7 @@ const AddTouristsSpot = () => {
                 text: "You clicked the button!",
                 icon: "success"
               });
+
         }
       })
       
@@ -94,8 +95,8 @@ const AddTouristsSpot = () => {
                             <label htmlFor="state" className="text-sm">Seasonality</label>
                             <select {...register("seasonality")} type='text' placeholder="Select Season" className="w-full rounded-md focus:ring focus:dark:ring-violet-600 dark:border-gray-300 h-14 px-4 border" >
                                 <option defaultValue={"Select Season"}>Select Season</option>
-                                <option value="summer">Summer</option>
-                                <option value="winter">Winter</option>
+                                <option value="Summer">Summer</option>
+                                <option value="Winter">Winter</option>
                             </select>
                         </div>
 

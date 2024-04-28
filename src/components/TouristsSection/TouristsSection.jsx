@@ -1,21 +1,23 @@
 import { Link } from "react-router-dom";
 import { BookingCard } from "./BookingCard";
-import { useEffect, useState } from "react";
+import { useContext } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 
 
 const TouristsSection = () => {
-    const [touristsSpots,setTouristsSpots] = useState([])
+    const {touristsSpots} = useContext(AuthContext)
+    // const [touristsSpots,setTouristsSpots] = useState([])
     
 
-    useEffect(()=>{
-        fetch('http://localhost:5000/tourists')
-        .then(res=>res.json())
-        .then(data=>{
+    // useEffect(()=>{
+    //     fetch('http://localhost:5000/tourists')
+    //     .then(res=>res.json())
+    //     .then(data=>{
             
-            setTouristsSpots(data)
-        })
-    },[])
+    //         setTouristsSpots(data)
+    //     })
+    // },[])
     return (
         <div className="xl:px-56">
             <div className=" px-6 flex items-center">
@@ -28,11 +30,6 @@ const TouristsSection = () => {
                 </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-12  mx-auto my-10 ">
-
-                <BookingCard />
-                <BookingCard />
-                <BookingCard />
-                <BookingCard />
                 {
                     touristsSpots.map(spot=><BookingCard key={spot._id} spot={spot} />)
                 }
