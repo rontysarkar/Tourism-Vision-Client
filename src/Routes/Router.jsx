@@ -7,6 +7,7 @@ import MyList from "../Pages/MyList";
 import Register from "../Pages/Register";
 import LogIn from "../Pages/LogIn";
 import ViewDetails from "../components/ViewDetails";
+import UpdateData from "../Pages/UpdateData";
 
 
 
@@ -47,6 +48,10 @@ export const router = createBrowserRouter([
         path:'/spot/:id',
         element:<ViewDetails/>,
         loader: ({params})=> fetch(`http://localhost:5000/tourists/${params.id}`)
+      },
+      {
+        path:'/updateData/:id',
+        element:<UpdateData/>
       }
     ]
   },

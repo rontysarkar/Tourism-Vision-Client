@@ -41,20 +41,13 @@ const AddTouristsSpot = () => {
       
     }
     return (
-        <section className="p-6 dark:bg-gray-100 dark:text-gray-900 border  ">
-            <form onSubmit={handleSubmit(onSubmit)} className="container flex flex-col mx-auto space-y-12 shadow-2xl">
+        <section className="p-6 dark:bg-gray-100 dark:text-gray-900 border py-10  ">
+            <form onSubmit={handleSubmit(onSubmit)} className="container flex flex-col mx-auto space-y-12 shadow-2xl ">
                 <div className="  rounded-md shadow-sm  dark:bg-gray-50  bg-[#f4f3f0] py-20  ">
                     <h1 className="text-center text-3xl font-bold pt-6 opacity-80">Add New Tourists Spot</h1>
                     <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3 p-10 px-20 ">
 
-                        {/* <div className="col-span-full sm:col-span-3">
-                            <label className="text-sm">User Name</label>
-                            <input {...register("name")} type="text" placeholder="Name" className="w-full rounded-md focus:ring focus:dark:ring-violet-600 dark:border-gray-300 h-14 px-4 border" />
-                        </div>
-                        <div className="col-span-full sm:col-span-3">
-                            <label  className="text-sm">User Email</label>
-                            <input {...register("email")} type="email" placeholder="Email address" className="w-full rounded-md focus:ring focus:dark:ring-violet-600 dark:border-gray-300 h-14 px-4 border" />
-                        </div> */}
+                        
                         <div className="col-span-full sm:col-span-3">
                             <label className="text-sm">Tourists Spot Name</label>
                             <input {...register("tourists_spot_name")} type="text" placeholder="Tourists Spot Name" className="w-full rounded-md focus:ring focus:dark:ring-violet-600 dark:border-gray-300 h-14 px-4 border" />

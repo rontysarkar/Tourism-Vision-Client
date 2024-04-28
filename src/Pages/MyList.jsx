@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
-import { input } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 
 
 const MyList = () => {
@@ -79,8 +79,9 @@ const MyList = () => {
     
 
     return (
-        <div className="overflow-x-auto">
-            <table className="table">
+        <div className="overflow-x-auto mx-10">
+            
+            <table className="table mt-10 ">
                 {/* head */}
                 <thead>
                     <tr>
@@ -119,7 +120,7 @@ const MyList = () => {
                             <td>{spot.totalVisitorsPerYear}</td>
                             <td>{spot.average_cost}</td>
                             <th>
-                                <button onClick={()=>handleUpdate(spot._id)} className="w-24 px-6 hover:bg-transparent hover:text-black bg-primary text-white py-1 rounded-sm border">UPDATE</button>
+                                <Link to={`/updateData/${spot._id}`}><button onClick={()=>handleUpdate(spot._id)} className="w-24 px-6 hover:bg-transparent hover:text-black bg-primary text-white py-1 rounded-sm border">UPDATE</button></Link>
                             </th>
                             <th>
                                 <button onClick={() => handleDelete(spot._id)} className="w-24 px-6 hover:bg-transparent hover:text-black bg-red-500 text-white py-1 rounded-sm border">DELETE</button>
