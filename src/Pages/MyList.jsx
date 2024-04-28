@@ -70,18 +70,16 @@ const MyList = () => {
     }
 
 
-    // update data
 
-    const handleUpdate = id =>{
-        console.log('update id', id)
-    }
+
+    
 
     
 
     return (
-        <div className="overflow-x-auto mx-10">
+        <div className="overflow-x-auto mx-10 my-10">
             
-            <table className="table mt-10 ">
+            <table className="table  ">
                 {/* head */}
                 <thead>
                     <tr>
@@ -120,7 +118,7 @@ const MyList = () => {
                             <td>{spot.totalVisitorsPerYear}</td>
                             <td>{spot.average_cost}</td>
                             <th>
-                                <Link to={`/updateData/${spot._id}`}><button onClick={()=>handleUpdate(spot._id)} className="w-24 px-6 hover:bg-transparent hover:text-black bg-primary text-white py-1 rounded-sm border">UPDATE</button></Link>
+                                <Link to={`/updateData/${spot._id}`}><button className="w-24 px-6 hover:bg-transparent hover:text-black bg-primary text-white py-1 rounded-sm border">UPDATE</button></Link>
                             </th>
                             <th>
                                 <button onClick={() => handleDelete(spot._id)} className="w-24 px-6 hover:bg-transparent hover:text-black bg-red-500 text-white py-1 rounded-sm border">DELETE</button>

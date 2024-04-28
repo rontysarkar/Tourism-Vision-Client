@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import logo from "../assets/images/logo.png"
 
 
 const Navbar = () => {
-  const {user,LogOut} = useContext(AuthContext)
+  const { user, LogOut } = useContext(AuthContext)
   const allLinks = (
     <>
       <NavLink
@@ -12,8 +13,8 @@ const Navbar = () => {
           isPending
             ? "pending"
             : isActive
-            ? "text-primary border-b-4  border-primary font-bold  "
-            : "hover:text-primary font-bold"
+              ? "text-primary border-b-4  border-primary font-bold  "
+              : "hover:text-primary font-bold"
         }
         to={"/"}
       >
@@ -26,8 +27,8 @@ const Navbar = () => {
           isPending
             ? "pending"
             : isActive
-            ? "text-primary border-b-4  border-primary font-bold  "
-            : "hover:text-primary font-bold"
+              ? "text-primary border-b-4  border-primary font-bold  "
+              : "hover:text-primary font-bold"
         }
         to={"/allTouristsSpot"}
       >
@@ -40,8 +41,8 @@ const Navbar = () => {
           isPending
             ? "pending"
             : isActive
-            ? "text-primary border-b-4  border-primary font-bold  "
-            : "hover:text-primary font-bold"
+              ? "text-primary border-b-4  border-primary font-bold  "
+              : "hover:text-primary font-bold"
         }
         to={"/addTouristsSpot"}
       >
@@ -54,8 +55,8 @@ const Navbar = () => {
           isPending
             ? "pending"
             : isActive
-            ? "text-primary border-b-4  border-primary font-bold  "
-            : "hover:text-primary font-bold"
+              ? "text-primary border-b-4  border-primary font-bold  "
+              : "hover:text-primary font-bold"
         }
         to={"/myList"}
       >
@@ -63,16 +64,16 @@ const Navbar = () => {
           <span>My List</span>
         </li>
       </NavLink>
-      
+
     </>
-  
+
   );
 
-  const handleLogOut = ()=>{
+  const handleLogOut = () => {
     LogOut()
-    .then(()=>{
-      console.log('logout')
-    })
+      .then(() => {
+        console.log('logout')
+      })
   }
 
 
@@ -104,7 +105,12 @@ const Navbar = () => {
             {allLinks}
           </ul>
         </div>
-        <a className="btn btn-ghost text-2xl font-days ">Tourism Vision</a>
+        <div className="flex items-center">
+          <img className="w-14 text-primary " src={logo} alt="" />
+          <a className="btn btn-ghost text-xl xl:text-3xl font-bold ">Tourism<span className="text-primary">Vision</span></a>
+        </div>
+
+
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 ">{allLinks}</ul>
@@ -114,30 +120,30 @@ const Navbar = () => {
         {/* <Link to={'register'} className="btn">Register</Link> */}
         {
           user ? <div className=" relative group  ">
-          <div
-            tabIndex={0}
-            role="button"
-            className="btn btn-ghost btn-circle avatar"
-          >
-            <div className="w-10 rounded-full ">
-              <img
-                alt="Tailwind CSS Navbar component"
-                src={user.photoURL}
-              />
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost btn-circle avatar"
+            >
+              <div className="w-10 rounded-full ">
+                <img
+                  alt="Tailwind CSS Navbar component"
+                  src={user.photoURL}
+                />
+              </div>
             </div>
-          </div>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm z-10  absolute right-12 -bottom-16 mt-3  p-2 shadow bg-base-100 rounded-box w-52 hidden group-hover:block "
-          >
-            <li className=" py-4   text-center font-bold">
-              {user.displayName}
-            </li>
-            <li  onClick={handleLogOut}>
-              <button className="bg-primary text-center w-22 px-6 mx-auto text-white ">Logout</button>
-            </li>
-          </ul>
-        </div> : <Link to={'/login'}><button className="w-24 px-6 bg-primary text-white py-1 rounded-sm">Login</button></Link>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm z-10  absolute right-12 -bottom-16 mt-3  p-2 shadow bg-base-100 rounded-box w-52 hidden group-hover:block "
+            >
+              <li className=" py-4   text-center font-bold">
+                {user.displayName}
+              </li>
+              <li onClick={handleLogOut}>
+                <button className="bg-primary text-center w-22 px-6 mx-auto text-white ">Logout</button>
+              </li>
+            </ul>
+          </div> : <Link to={'/login'}><button className="w-24 px-6 bg-primary text-white py-1 rounded-sm">Login</button></Link>
         }
       </div>
     </div>

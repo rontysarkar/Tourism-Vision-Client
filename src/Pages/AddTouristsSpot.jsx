@@ -44,7 +44,7 @@ const AddTouristsSpot = () => {
         <section className="p-6 dark:bg-gray-100 dark:text-gray-900 border py-10  ">
             <form onSubmit={handleSubmit(onSubmit)} className="container flex flex-col mx-auto space-y-12 shadow-2xl ">
                 <div className="  rounded-md shadow-sm  dark:bg-gray-50  bg-[#f4f3f0] py-20  ">
-                    <h1 className="text-center text-3xl font-bold pt-6 opacity-80">Add New Tourists Spot</h1>
+                    <h1 className="text-center text-3xl font-bold  opacity-80">Add New Tourists Spot</h1>
                     <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3 p-10 px-20 ">
 
                         
@@ -99,7 +99,7 @@ const AddTouristsSpot = () => {
                         </div>
 
                         <div className="col-span-full">
-                            <input type="submit" value="Add Now" className="btn w-full mt-6  bg-primary" />
+                            <input type="submit" value="Add Now" className="btn w-full mt-6 text-white  bg-primary" />
                         </div>
 
 
