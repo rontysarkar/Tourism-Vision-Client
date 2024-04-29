@@ -89,15 +89,15 @@ const Register = () => {
 
     return (
         <div className="grid items-center min-h-[calc(100vh-200px)]">
-            {loading && <div className="absolute inset-0 bg-white/50 h-screen max-w-[1920px] flex justify-center items-center p-5 "><HashLoader className="" size={200} color="#ff681a" /></div> }
-            <section className="p-6 dark:bg-gray-100 dark:text-gray-800 mt-10  ">
+            {loading && <div className="absolute inset-0  h-screen max-w-[1920px] flex justify-center items-center p-5 "><HashLoader className="" size={200} color="#ff681a" /></div> }
+            <section className="p-6   mt-10  ">
                 <div className="container grid gap-6 mx-auto text-center lg:grid-cols-2 xl:grid-cols-5 ">
 
                     <img src="https://i.ibb.co/ZVx3dGx/depositphotos-114341588-stock-illustration-vacation-and-travel.webp" alt="" className="object-cover w-full rounded-md xl:col-span-3 dark:bg-gray-500 mt-10" />
-                    <div className="w-full px-6 py-10 rounded-md sm:px-12 md:px-16 xl:col-span-2 dark:bg-gray-50 space-y-2" >
+                    <div className="w-full px-6 py-10 rounded-md sm:px-12 md:px-16 xl:col-span-2  space-y-2" >
 
                         <div>
-                            <h1 className="text-3xl font-extrabold text-start pb-2 dark:text-gray-900">Create Account </h1>
+                            <h1 className="text-3xl font-extrabold text-start pb-2 d">Create Account </h1>
                             <p className="text-start pt-2 font-semibold opacity-60 pl-2">Enter your details below</p>
                         </div>
 
@@ -136,7 +136,7 @@ const Register = () => {
                         </form>
                         <div className="flex items-center pt-4 space-x-1">
                             <div className="flex-1 h-px sm:w-16 dark:bg-gray-300"></div>
-                            <p className="px-3 text-sm dark:text-gray-600">Login with social accounts</p>
+                            <p className="px-3 text-sm ">Login with social accounts</p>
                             <div className="flex-1 h-px sm:w-16 dark:bg-gray-300"></div>
                         </div>
 
@@ -153,8 +153,8 @@ const Register = () => {
                                 </svg>
                             </button>
                         </div>
-                        <p className=" text-center sm:px-6 dark:text-gray-600">You have an account?
-                            <Link to={'/login'} rel="noopener noreferrer" href="#" className="underline dark:text-gray-800">Sign in</Link>
+                        <p className=" text-center sm:px-6 ">You have an account?
+                            <Link to={'/login'} rel="noopener noreferrer" href="#" className="underline ">Sign in</Link>
                         </p>
                     </div>
                 </div>
