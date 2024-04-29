@@ -1,50 +1,72 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form"
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import { VscEye, VscEyeClosed } from "react-icons/vsc";
+import toast from "react-hot-toast";
+import { HashLoader } from "react-spinners";
 
 const LogIn = () => {
-    const {logInUser,signInWithPop} = useContext(AuthContext)
+    const { logInUser, signInWithPop, setLoading, loading } = useContext(AuthContext)
     const { register, handleSubmit, } = useForm()
     const [keyValue, setKeyValue] = useState('')
     const [toggleEye, setToggleEye] = useState(false)
+    const location = useLocation()
+    const Navigate = useNavigate()
+    console.log(location.state)
 
     const googleProvider = new GoogleAuthProvider()
     const githubProvider = new GithubAuthProvider();
     const onSubmit = (data) => {
-        logInUser(data.email,data.password)
-        .then(result=>{
-            console.log(result.user)
-        })
-        .catch(error=>{
-            console.error(error)
-        })
+        logInUser(data.email, data.password)
+            .then(result => {
+                Navigate(location.state || "/")
+                setLoading(false)
+                console.log(result.user)
+                toast.success('You have successfully registered.')
+            })
+            .catch(error => {
+                setLoading(false)
+                console.error(error)
+                toast.error(error.message)
+            })
     }
 
-    const handleGoogle = ()=>{
+    const handleGoogle = () => {
         signInWithPop(googleProvider)
-        .then(result=>{
-            console.log(result)
-        })
-        .catch(error=>{
-            console.error(error)
-        })
+            .then(result => {
+                setLoading(false)
+                Navigate(location.state || "/")
+                console.log(result)
+                toast.success('You have successfully registered.')
+            })
+            .catch(error => {
+                setLoading(false)
+                console.error(error)
+                toast.error(error.message)
+            })
     }
 
-    const handleGithub = () =>{
+    const handleGithub = () => {
         signInWithPop(githubProvider)
-        .then(result=>{
-            console.log(result)
-        })
-        .catch(error=>{
-            console.log(error)
-        })
+            .then(result => {
+                Navigate(location.state || "/")
+                setLoading(false)
+                console.log(result)
+                toast.success('You have successfully registered.')
+            })
+            .catch(error => {
+                setLoading(false)
+                console.log(error)
+                toast.error(error.message)
+            })
     }
     return (
         <div className="grid items-center min-h-[calc(100vh-200px)]">
+            {loading && <div className="absolute inset-0 bg-white/50 h-screen max-w-[1920px] flex justify-center items-center p-5 "><HashLoader className="" size={200} color="#ff681a" /></div>}
+
             <section className="p-6 dark:bg-gray-100 dark:text-gray-800 mt-10  ">
                 <div className="container grid gap-6 mx-auto text-center lg:grid-cols-2 xl:grid-cols-5 ">
 
@@ -63,13 +85,13 @@ const LogIn = () => {
                                 </label>
                                 <input {...register("email")} type="email" placeholder="Email address" className="w-full rounded-md focus:ring focus:dark:ring-violet-600 dark:border-gray-300 h-14 px-4" />
                             </div>
-                            <div>
+                            <div className="relative">
                                 <label className="label">
                                     <span className="label-text pl-1">Password</span>
                                 </label>
                                 <input {...register("password",)} onChange={e => { setKeyValue(e.target.value) }} type={toggleEye ? 'text' : "password"} placeholder="Password" className="w-full rounded-md focus:ring focus:dark:ring-violet-600 dark:border-gray-300 h-14 px-4" />
                                 {
-                                    keyValue && <> { toggleEye ?  <VscEyeClosed onClick={() => setToggleEye(false)} className="text-2xl absolute top-12 right-5" /> : <VscEye onClick={() => setToggleEye(true)} className="text-2xl absolute top-12 right-5" /> }  </>
+                                    keyValue && <> {toggleEye ? <VscEyeClosed onClick={() => setToggleEye(false)} className="text-2xl absolute top-12 right-5" /> : <VscEye onClick={() => setToggleEye(true)} className="text-2xl absolute top-12 right-5" />}  </>
                                 }
                             </div>
                             <button type="submit" className="w-full py-2 font-semibold rounded dark:bg-primary dark:text-gray-50 btn">Login</button>
@@ -93,7 +115,7 @@ const LogIn = () => {
                                 </svg>
                             </button>
                         </div>
-                        <p className="text-xs text-center sm:px-6 dark:text-gray-600">Don't have an account?
+                        <p className="text-base text-center sm:px-6 dark:text-gray-600">Don't have an account?
                             <Link to={'/register'} rel="noopener noreferrer" href="#" className="underline dark:text-gray-800">Sign up</Link>
                         </p>
                     </div>

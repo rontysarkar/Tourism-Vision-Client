@@ -5,12 +5,13 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import toast from "react-hot-toast";
 import { VscEye, VscEyeClosed } from "react-icons/vsc";
+import { HashLoader } from "react-spinners";
 
 const Register = () => {
     const [registerError, setRegisterError] = useState('')
     const [keyValue, setKeyValue] = useState('')
     const [toggleEye, setToggleEye] = useState(false)
-    const { createAccount, signInWithPop, userProfileUpdate, setUser } = useContext(AuthContext)
+    const { createAccount, signInWithPop, userProfileUpdate, setUser,setLoading,loading } = useContext(AuthContext)
 
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
@@ -21,6 +22,7 @@ const Register = () => {
     const { register, handleSubmit } = useForm()
 
     const onSubmit = (data) => {
+        
         setRegisterError('')
         // console.log(data.password.length)
         if (data.password.length < 6) {
@@ -37,9 +39,9 @@ const Register = () => {
             return
         }
 
-
         createAccount(data.email, data.password)
             .then((result) => {
+                setLoading(false)
                 userProfileUpdate(data.name, data.image)
                     .then(() => {
                         setUser({ displayName: data.name, photoURL: data.image })
@@ -51,6 +53,7 @@ const Register = () => {
 
             })
             .catch((error) => {
+                setLoading(false)
                 console.log(error.message.split('/')[1].split(')')[0])
                 toast.error(error.message.split('/')[1].split(')')[0])
 
@@ -60,9 +63,12 @@ const Register = () => {
     const handleGoogle = () => {
         signInWithPop(googleProvider)
             .then(result => {
+                navigate('/')
+                setLoading(false)
                 console.log(result)
             })
             .then(error => {
+                setLoading(false)
                 console.error(error)
             })
     }
@@ -70,9 +76,12 @@ const Register = () => {
     const handleGithub = () => {
         signInWithPop(githubProvider)
             .then(result => {
+                navigate('/')
+                setLoading(false)
                 console.log(result)
             })
             .catch(error => {
+                setLoading(false)
                 console.error(error)
             })
     }
@@ -80,6 +89,7 @@ const Register = () => {
 
     return (
         <div className="grid items-center min-h-[calc(100vh-200px)]">
+            {loading && <div className="absolute inset-0 bg-white/50 h-screen max-w-[1920px] flex justify-center items-center p-5 "><HashLoader className="" size={200} color="#ff681a" /></div> }
             <section className="p-6 dark:bg-gray-100 dark:text-gray-800 mt-10  ">
                 <div className="container grid gap-6 mx-auto text-center lg:grid-cols-2 xl:grid-cols-5 ">
 
@@ -143,7 +153,7 @@ const Register = () => {
                                 </svg>
                             </button>
                         </div>
-                        <p className="text-xs text-center sm:px-6 dark:text-gray-600">You have an account?
+                        <p className=" text-center sm:px-6 dark:text-gray-600">You have an account?
                             <Link to={'/login'} rel="noopener noreferrer" href="#" className="underline dark:text-gray-800">Sign in</Link>
                         </p>
                     </div>

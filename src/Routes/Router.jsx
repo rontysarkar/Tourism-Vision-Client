@@ -8,6 +8,7 @@ import Register from "../Pages/Register";
 import LogIn from "../Pages/LogIn";
 import ViewDetails from "../components/ViewDetails";
 import UpdateData from "../Pages/UpdateData";
+import PrivetRoutes from "./PrivetRoutes";
 
 
 
@@ -29,11 +30,11 @@ export const router = createBrowserRouter([
       },
       {
         path: '/addTouristsSpot',
-        element: <AddTouristsSpot />
+        element: <PrivetRoutes><AddTouristsSpot /></PrivetRoutes>
       },
       {
         path: '/myList',
-        element: <MyList />
+        element: <PrivetRoutes><MyList /></PrivetRoutes>
       },
       {
         path: '/login',
@@ -46,12 +47,12 @@ export const router = createBrowserRouter([
       },
       {
         path:'/spot/:id',
-        element:<ViewDetails/>,
+        element:<PrivetRoutes><ViewDetails/></PrivetRoutes>,
         loader: ({params})=> fetch(`http://localhost:5000/tourists/${params.id}`)
       },
       {
         path:'/updateData/:id',
-        element:<UpdateData/>,
+        element:<PrivetRoutes><UpdateData/></PrivetRoutes>,
         loader: ({params})=> fetch(`http://localhost:5000/tourists/${params.id}`)
       }
     ]

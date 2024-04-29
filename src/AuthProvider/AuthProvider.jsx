@@ -9,8 +9,8 @@ export const AuthContext = createContext(null)
 const AuthProvider = ({ children }) => {
     const [user,setUser] = useState(null)
     const [loading,setLoading] = useState(true)
-    // // const [touristsSpots,setTouristsSpots] = useState([])
-    // const [spotsUpdateToggle,setSpotUpdateToggle] = useState(true)
+    console.log(loading)
+   
     
 
     
@@ -35,15 +35,26 @@ const AuthProvider = ({ children }) => {
 
     // sign in with google 
     const signInWithPop =(provider)=>{
+        setLoading(true)
+
         return signInWithPopup(auth,provider)
     }
+
+    const LogOut = ()=>{
+        setLoading(true)
+        return signOut(auth)
+    }
+
 
     // on auth state change 
      useEffect(()=>{
         const unSubscribe = onAuthStateChanged(auth,(currentUser)=>{
-            setLoading(false)
+            // if(currentUser){
+                setLoading(false)
+            // }
             setUser(currentUser)
             console.log(currentUser)
+
             
         });
         return ()=>{
@@ -53,25 +64,13 @@ const AuthProvider = ({ children }) => {
 
     //  Log Out 
 
-    const LogOut = ()=>{
-        return signOut(auth)
-    }
+    
 
     // all tourists spots
 
     
     
     
-
-    // useEffect(()=>{
-    //     fetch('http://localhost:5000/tourists')
-    //     .then(res=>res.json())
-    //     .then(data=>{
-            
-    //         setTouristsSpots(data)
-    //     })
-    //     .catch()
-    // },[spotsUpdateToggle])
     
     
 
@@ -82,6 +81,7 @@ const AuthProvider = ({ children }) => {
         logInUser,
         signInWithPop,
         loading,
+        setLoading,
         LogOut,
         userProfileUpdate,
         setUser,

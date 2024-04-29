@@ -5,7 +5,7 @@ import logo from "../assets/images/logo.png"
 
 
 const Navbar = () => {
-  const { user, LogOut } = useContext(AuthContext)
+  const { user, LogOut,loading } = useContext(AuthContext)
   const allLinks = (
     <>
       <NavLink
@@ -119,7 +119,7 @@ const Navbar = () => {
         {/* <Link to={'/login'} className="btn">Login</Link> */}
         {/* <Link to={'register'} className="btn">Register</Link> */}
         {
-          user ? <div className=" relative group  ">
+         loading ? <span className="loading loading-ring loading-lg"></span> : user ? <div className=" relative group  ">
             <div
               tabIndex={0}
               role="button"
