@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export function BookingCard({ spot }) {
     // console.log(spot)
     return (
-        <Card className="w-full max-w-[26rem] shadow-lg mx-auto">
+        <Card className="w-full max-w-[26rem] shadow-lg mx-auto bg-transparent">
             <CardHeader floated={false} color="blue-gray">
                 <div className="h-[220px]">
                     <img src={spot.image} className=" object-fill overflow-hidden " alt="" />
@@ -29,7 +29,7 @@ export function BookingCard({ spot }) {
             </CardHeader>
             <CardBody>
                 <div className="mb-3 flex items-center justify-between">
-                    <Typography variant="h5" color="blue-gray" className="font-medium">
+                    <Typography variant="h5" color="blue-gray" className="font-medium ">
                         {spot.tourists_spot_name}
                     </Typography>
 
@@ -40,8 +40,8 @@ export function BookingCard({ spot }) {
                     {spot.short_description.slice(0, 120)}....
                 </Typography>
                 <div className="group mt-8 inline-flex flex-wrap items-center gap-3">
-                    <Tooltip content="Material Tailwind "  >
-                        <span className="cursor-pointer rounded-full border border-gray-900/5 bg-gray-900/5 p-3 text-gray-900 transition-colors hover:border-gray-900/10 hover:bg-gray-900/10 hover:!opacity-100 group-hover:opacity-70">
+                    <Tooltip content={spot.average_cost} className='text-primary font-bold'  >
+                        <span className="cursor-pointer rounded-full border hover:text-primary   p-3 transition-colors hover:border-gray-900/10 hover:bg-gray-900/10 hover:!opacity-100 group-hover:opacity-70">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
@@ -59,8 +59,8 @@ export function BookingCard({ spot }) {
                         </span>
                     </Tooltip>
                     
-                    <Tooltip content="Free wifi">
-                        <span className="cursor-pointer rounded-full border border-gray-900/5 bg-gray-900/5 p-3 text-gray-900 transition-colors hover:border-gray-900/10 hover:bg-gray-900/10 hover:!opacity-100 group-hover:opacity-70">
+                    <Tooltip content="Free wifi" className='text-primary font-bold'>
+                        <span className="cursor-pointer rounded-full border hover:text-primary   p-3 transition-colors hover:border-gray-900/10 hover:bg-gray-900/10 hover:!opacity-100 group-hover:opacity-70">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
@@ -75,8 +75,8 @@ export function BookingCard({ spot }) {
                             </svg>
                         </span>
                     </Tooltip>
-                    <Tooltip content="2 bedrooms">
-                        <span className="cursor-pointer rounded-full border border-gray-900/5 bg-gray-900/5 p-3 text-gray-900 transition-colors hover:border-gray-900/10 hover:bg-gray-900/10 hover:!opacity-100 group-hover:opacity-70">
+                    <Tooltip content="2 bedrooms" className='text-primary font-bold' >
+                        <span className="cursor-pointer rounded-full border hover:text-primary   p-3 transition-colors hover:border-gray-900/10 hover:bg-gray-900/10 hover:!opacity-100 group-hover:opacity-70">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
@@ -88,8 +88,8 @@ export function BookingCard({ spot }) {
                             </svg>
                         </span>
                     </Tooltip>
-                    <Tooltip content={`65" HDTV`}>
-                        <span className="cursor-pointer rounded-full border border-gray-900/5 bg-gray-900/5 p-3 text-gray-900 transition-colors hover:border-gray-900/10 hover:bg-gray-900/10 hover:!opacity-100 group-hover:opacity-70">
+                    <Tooltip content={`65" HDTV` } className='text-primary font-bold'>
+                        <span className="cursor-pointer rounded-full border hover:text-primary   p-3 transition-colors hover:border-gray-900/10 hover:bg-gray-900/10 hover:!opacity-100 group-hover:opacity-70">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
@@ -105,8 +105,8 @@ export function BookingCard({ spot }) {
                             </svg>
                         </span>
                     </Tooltip>
-                    <Tooltip content="Fire alert">
-                        <span className="cursor-pointer rounded-full border border-gray-900/5 bg-gray-900/5 p-3 text-gray-900 transition-colors hover:border-gray-900/10 hover:bg-gray-900/10 hover:!opacity-100 group-hover:opacity-70">
+                    <Tooltip content="Fire alert" className='text-primary font-bold'>
+                        <span className="cursor-pointer rounded-full border hover:text-primary   p-3 transition-colors hover:border-gray-900/10 hover:bg-gray-900/10 hover:!opacity-100 group-hover:opacity-70">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
@@ -121,8 +121,8 @@ export function BookingCard({ spot }) {
                             </svg>
                         </span>
                     </Tooltip>
-                    <Tooltip content="And +20 more">
-                        <span className="cursor-pointer rounded-full border border-gray-900/5 bg-gray-900/5 p-3 text-gray-900 transition-colors hover:border-gray-900/10 hover:bg-gray-900/10 hover:!opacity-100 group-hover:opacity-70">
+                    <Tooltip content="And +20 more" className='text-primary font-bold'>
+                        <span className="cursor-pointer rounded-full border hover:text-primary   p-3 transition-colors hover:border-gray-900/10 hover:bg-gray-900/10 hover:!opacity-100 group-hover:opacity-70">
                             +20
                         </span>
                     </Tooltip>

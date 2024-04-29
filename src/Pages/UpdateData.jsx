@@ -38,9 +38,9 @@ const UpdateData = () => {
         
     }
     return (
-        <section className="p-6 dark:bg-gray-100 dark:text-gray-900 border py-10  ">
+        <section className="p-6  border py-10  ">
             <form onSubmit={handleSubmit(onSubmit)} className="container flex flex-col mx-auto space-y-12 shadow-2xl ">
-                <div className="  rounded-md shadow-sm  dark:bg-gray-50  bg-[#f4f3f0] py-20  ">
+                <div className="  rounded-md shadow-sm   py-20  ">
                     <h1 className="text-center text-3xl font-bold  opacity-80">Update Your Tourists Spot</h1>
                     <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3 p-10 px-20 ">
 

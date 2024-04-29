@@ -8,14 +8,14 @@ import { BsCloudSun } from "react-icons/bs";
 const TouristsCard = ({spot}) => {
     // console.log(spot)
     return (
-        <div data-aos="zoom-in-up" data-aos-duration='1000' className=" w-11/12 xl:w-full mx-auto rounded-lg shadow-md dark:bg-gray-50 ">
-            <img src={spot.image} alt="" className="object-cover object-center w-full rounded-t-md h-72 dark:bg-gray-500" />
+        <div data-aos="zoom-in-up" data-aos-duration='1000' className=" w-11/12 xl:w-full mx-auto rounded-lg shadow-md  ">
+            <img src={spot.image} alt="" className="object-cover object-center w-full rounded-t-md h-72 " />
 
             <div className="flex flex-col justify-between p-6 space-y-8">
                 <div className="space-y-2">
                     <h2 className="text-2xl font-semibold tracking-wide">{spot.tourists_spot_name}</h2>
                     <h3 className="text-xl font-bold flex items-center  gap-2"><span className='text-primary opacity-80'>{spot.country_Name}</span></h3>
-                    <p className="dark:text-gray-800 opacity-80">{spot.short_description.slice(0,140)}......</p>
+                    <p className=" opacity-80">{spot.short_description.slice(0,140)}......</p>
                     <h1 data-aos='fade-up-right' data-aos-duration='1000' data-aos-delay="800" className='py-2  flex items-center gap-1 font-medium text-xs lg:text-sm '><IoLocationOutline className="text-primary" /> Location : <span >{spot.location}</span></h1>
 
                     <div className='flex flex-col gap-2 lg:flex-row lg:gap-6 '>

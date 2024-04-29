@@ -9,6 +9,7 @@ import LogIn from "../Pages/LogIn";
 import ViewDetails from "../components/ViewDetails";
 import UpdateData from "../Pages/UpdateData";
 import PrivetRoutes from "./PrivetRoutes";
+import ErrorPage from "../Pages/ErrorPage";
 
 
 
@@ -16,6 +17,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement:<ErrorPage/>,
     children: [
       {
         path: '/',
