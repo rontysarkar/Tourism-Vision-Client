@@ -20,7 +20,7 @@ const TouristsSection = () => {
         <div className="xl:px-56">
             <div className=" px-6 flex flex-col lg:flex-row items-center gap-4">
                 <div >
-                    <h1 className=" font-bold text-4xl">Popular Tour Package</h1>
+                    <h1 className=" font-bold text-4xl ">Popular Tour Package</h1>
                     <p className="lg:w-2/3 my-2 opacity-60 ">Explore iconic landmarks and hidden gems with our Popular Tour Package! Immerse yourself in vibrant cultures, savor local cuisines, and create unforgettable memories as you journey through captivating destinations curated to offer the perfect blend of adventure and relaxation</p>
                 </div>
                 <div >
