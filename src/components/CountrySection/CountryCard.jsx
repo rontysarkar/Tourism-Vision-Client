@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import PropTypes from 'prop-types'
 const CountryCard = ({country}) => {
     return (
@@ -11,10 +10,7 @@ const CountryCard = ({country}) => {
                     <p className=" opacity-80">{country?.short_description?.slice(0,120)}......</p>
                     
                 </div>
-                <div className="flex items-center">
-                    <Link to={`/spot/`} ><button className=" px-4 py-2 text-primary bg-transparent font-semibold  rounded-lg border border-primary hover:bg-primary hover:text-white ">View Details</button></Link>
-                    
-                </div>
+                
             </div>
         </div>
     );

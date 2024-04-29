@@ -10,6 +10,7 @@ import ViewDetails from "../components/ViewDetails";
 import UpdateData from "../Pages/UpdateData";
 import PrivetRoutes from "./PrivetRoutes";
 import ErrorPage from "../Pages/ErrorPage";
+import CountrySpot from "../Pages/CountrySpot";
 
 
 
@@ -56,6 +57,11 @@ export const router = createBrowserRouter([
         path:'/updateData/:id',
         element:<PrivetRoutes><UpdateData/></PrivetRoutes>,
         loader: ({params})=> fetch(`http://localhost:5000/tourists/${params.id}`)
+      },
+      {
+        path:'/country/:country',
+        element:<CountrySpot/>,
+        loader:({params})=>fetch(`http://localhost:5000/Countries/${params.country}`)
       }
     ]
   },

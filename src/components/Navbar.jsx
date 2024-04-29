@@ -92,7 +92,7 @@ const Navbar = () => {
       setTheme('light')
     }
   }
-  console.log(theme)
+
 
 
 
