@@ -4,13 +4,20 @@ import { IoLocationOutline } from "react-icons/io5";
 import { MdPersonPin } from "react-icons/md";
 import { IoMdTimer } from "react-icons/io";
 import { BsCloudSun } from "react-icons/bs";
+import Lottie from "lottie-react";
+import photoAi from '../../assets/photoAi.json'
+
+
 
 const TouristsCard = ({spot}) => {
     // console.log(spot)
     return (
         <div data-aos="zoom-in-up" data-aos-duration='1000' className=" w-11/12 xl:w-full mx-auto rounded-lg shadow-md  ">
-            <img src={spot.image} alt="" className="object-cover object-center w-full rounded-t-md h-72 " />
-
+            <div >
+            {
+                spot.image ?  <img src={spot.image} alt="" className="object-cover object-center w-full rounded-t-md h-72 " /> : <Lottie  className="object-cover object-center w-full rounded-t-md h-72 "  animationData={photoAi}/>
+            }
+            </div>
             <div className="flex flex-col justify-between p-6 space-y-8">
                 <div className="space-y-2">
                     <h2 data-aos='fade-right' data-aos-duration='1000' data-aos-delay="200"  className="text-2xl font-semibold tracking-wide">{spot.tourists_spot_name}</h2>

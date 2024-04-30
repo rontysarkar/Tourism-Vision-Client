@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import logo from "../assets/images/logo.png"
-
+import person from '../assets/images/person.png'
 
 const Navbar = () => {
   const { user, LogOut, loading } = useContext(AuthContext)
@@ -148,10 +148,10 @@ const Navbar = () => {
               role="button"
               className="btn btn-ghost btn-circle avatar"
             >
-              <div className="w-10 rounded-full ">
+              <div className="w-10 rounded-full border ">
                 <img
                   alt="Tailwind CSS Navbar component"
-                  src={user.photoURL}
+                  src={user.photoURL ? user.photoURL : person}
                 />
               </div>
             </div>

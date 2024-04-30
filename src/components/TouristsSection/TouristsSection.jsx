@@ -29,7 +29,7 @@ const TouristsSection = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-12  mx-auto my-10 ">
                 {
-                    touristsSpots.map(spot=><BookingCard key={spot._id} spot={spot} />).slice(0,6)
+                    touristsSpots?.map(spot=><BookingCard key={spot._id} spot={spot} />).slice(0,6)
                 }
 
             </div>

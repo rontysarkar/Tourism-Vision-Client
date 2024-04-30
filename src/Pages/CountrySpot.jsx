@@ -3,7 +3,6 @@ import CountrySpotCard from "../components/CountrySection/CountrySpotCard";
 
 const CountrySpot = () => {
     const countrySpotData = useLoaderData()
-    console.log(countrySpotData)
     return (
         <div className="xl:px-32">
             <div className="text-center my-12" >
@@ -13,7 +12,7 @@ const CountrySpot = () => {
            
             <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-12  mx-auto my-6">
                 {
-                    countrySpotData.map(spot => <CountrySpotCard key={spot._id} spot={spot} />)
+                    countrySpotData?.map(spot => <CountrySpotCard key={spot._id} spot={spot} />)
                 }
 
             </div>

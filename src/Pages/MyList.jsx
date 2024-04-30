@@ -83,7 +83,7 @@ const MyList = () => {
                     {/* row 1 */}
 
                     {
-                        myData.map(spot => <tr key={spot._id}>
+                        myData?.map(spot => <tr key={spot._id}>
                             <td>
                                 <div className="flex items-center gap-3">
                                     <div className="avatar">

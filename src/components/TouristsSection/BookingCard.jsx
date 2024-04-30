@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export function BookingCard({ spot }) {
     // console.log(spot)
     return (
-        <Card  className="w-full max-w-[26rem] shadow-lg mx-auto bg-transparent">
+        <Card className="w-full max-w-[26rem] shadow-lg mx-auto bg-transparent">
             <CardHeader floated={false} color="blue-gray">
                 <div className="h-[220px]">
                     <img src={spot.image} className=" object-fill overflow-hidden " alt="" />
@@ -34,7 +34,7 @@ export function BookingCard({ spot }) {
                     </Typography>
 
                 </div>
-                <h3  className="  font-days flex items-center  gap-2"><span className='text-primary opacity-80'>{spot.country_Name}</span></h3>
+                <h3 className="  font-days flex items-center  gap-2"><span className='text-primary opacity-80'>{spot.country_Name}</span></h3>
 
                 <Typography color="gray">
                     {spot.short_description.slice(0, 120)}....
@@ -58,7 +58,7 @@ export function BookingCard({ spot }) {
                             </svg>
                         </span>
                     </Tooltip>
-                    
+
                     <Tooltip content="Free wifi" className='text-primary font-bold'>
                         <span className="cursor-pointer rounded-full border hover:text-primary   p-3 transition-colors hover:border-gray-900/10 hover:bg-gray-900/10 hover:!opacity-100 group-hover:opacity-70">
                             <svg
@@ -88,7 +88,7 @@ export function BookingCard({ spot }) {
                             </svg>
                         </span>
                     </Tooltip>
-                    <Tooltip content={`65" HDTV` } className='text-primary font-bold'>
+                    <Tooltip content={`65" HDTV`} className='text-primary font-bold'>
                         <span className="cursor-pointer rounded-full border hover:text-primary   p-3 transition-colors hover:border-gray-900/10 hover:bg-gray-900/10 hover:!opacity-100 group-hover:opacity-70">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"

@@ -112,25 +112,25 @@ const Register = () => {
                                 <label className="label">
                                     <span className="label-text pl-1">Name</span>
                                 </label>
-                                <input {...register("name")} type="text" placeholder="Enter Your Name" className="w-full rounded-md focus:ring focus:dark:ring-violet-600 dark:border-gray-300 h-14 px-4" />
+                                <input {...register("name")} type="text" placeholder="Enter Your Name" className="w-full rounded-md focus:ring focus:dark:ring-violet-600 dark:border-gray-300 h-14 px-4 border" />
                             </div>
                             <div>
                                 <label className="label">
                                     <span className="label-text pl-1">Photo Url</span>
                                 </label>
-                                <input {...register("image")} type="text" placeholder="Photo Url" className="w-full rounded-md focus:ring focus:dark:ring-violet-600 dark:border-gray-300 h-14 px-4" />
+                                <input {...register("image")} type="text" placeholder="Photo Url" className="w-full rounded-md focus:ring focus:dark:ring-violet-600 dark:border-gray-300 h-14 px-4 border " />
                             </div>
                             <div>
                                 <label className="label">
                                     <span className="label-text pl-1">Email</span>
                                 </label>
-                                <input {...register("email")} type="email" placeholder="Email address" className="w-full rounded-md focus:ring focus:dark:ring-violet-600 dark:border-gray-300 h-14 px-4" />
+                                <input {...register("email")} type="email" placeholder="Email address" className="w-full rounded-md focus:ring focus:dark:ring-violet-600 dark:border-gray-300 h-14 px-4 border " />
                             </div>
                             <div className="relative">
                                 <label className="label">
                                     <span className="label-text pl-1">Password</span>
                                 </label>
-                                <input {...register("password",)} onChange={e => { setKeyValue(e.target.value) }} type={toggleEye ? 'text' : "password"} placeholder="Password" className=" w-full  rounded-md focus:ring focus:dark:ring-violet-600 dark:border-gray-300 h-14 px-4 " />
+                                <input {...register("password",)} onChange={e => { setKeyValue(e.target.value) }} type={toggleEye ? 'text' : "password"} placeholder="Password" className=" w-full  rounded-md focus:ring focus:dark:ring-violet-600 dark:border-gray-300 h-14 px-4 border " />
                                 {
                                     keyValue && <> {toggleEye ? <VscEyeClosed onClick={() => setToggleEye(false)} className="text-2xl absolute top-12 right-5" /> : <VscEye onClick={() => setToggleEye(true)} className="text-2xl absolute top-12 right-5" />}  </>
                                 }
