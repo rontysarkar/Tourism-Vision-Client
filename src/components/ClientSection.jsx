@@ -32,7 +32,7 @@ const ClientSection = () => {
                         <div className="flex flex-col justify-between p-6 space-y-8">
                             <div className="space-y-2">
                                 <h2 className="text-xl font-semibold tracking-wide">Wanderlust Adventures</h2>
-                                <p className="dark:text-gray-800">A young couple in their late 20s, avid travelers seeking unique experiences off the beaten path</p>
+                                <p className="dark:text-gray-800">A young couple in their late 20s, avid travelers seeking unique experiences off the </p>
                             </div>
                         </div>
                     </div>
@@ -54,7 +54,7 @@ const ClientSection = () => {
                         <div className="flex flex-col justify-between p-6 space-y-8">
                             <div className="space-y-2">
                                 <h2 className="text-xl font-semibold tracking-wide">Michael Johnson</h2>
-                                <p className="dark:text-gray-800">From the moment I stepped off the plane, I knew my vacation with Tourism Vision</p>
+                                <p className="dark:text-gray-800">From the moment I stepped off the plane, I knew my vacation with </p>
                             </div>
                         </div>
                     </div>

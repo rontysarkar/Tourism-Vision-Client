@@ -1,12 +1,15 @@
 import { useContext, useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink  } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import logo from "../assets/images/logo.png"
-import person from '../assets/images/person.png'
+import personLogo from '../assets/images/person.png'
 
 const Navbar = () => {
   const { user, LogOut, loading } = useContext(AuthContext)
   const [theme,setTheme] = useState('light')
+
+
+  
   const allLinks = (
     <>
       <NavLink
@@ -124,8 +127,8 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="flex items-center">
-          <img className="w-14 text-primary " src={logo} alt="" />
-          <a className="btn btn-ghost text-xl xl:text-3xl font-bold ">Tourism<span className="text-primary">Vision</span></a>
+          <img className="w-14 hidden md:flex text-primary " src={logo} alt="" />
+          <a className="btn btn-ghost  xl:text-3xl font-bold ">Tourism<span className="text-primary">Vision</span></a>
         </div>
 
 
@@ -151,7 +154,7 @@ const Navbar = () => {
               <div className="w-10 rounded-full border ">
                 <img
                   alt="Tailwind CSS Navbar component"
-                  src={user.photoURL ? user.photoURL : person}
+                  src={user.photoURL ? user.photoURL : personLogo}
                 />
               </div>
             </div>
@@ -166,7 +169,9 @@ const Navbar = () => {
                 <button className="bg-primary text-center w-22 px-6 mx-auto text-white ">Logout</button>
               </li>
             </ul>
-          </div> : <Link to={'/login'}><button className="w-24 px-6 bg-primary text-white py-1 rounded-sm">Login</button></Link>
+          </div> : <> <Link to={'/login'}><button className="w-20 px-6 bg-primary text-white py-1 rounded-sm">Login</button></Link>
+                  <Link to={'/register'}><button className="w-20 px-2 hidden xl:flex   bg-primary text-white py-1 rounded-sm">Register</button></Link>
+           </>
         }
       </div>
     </div>
