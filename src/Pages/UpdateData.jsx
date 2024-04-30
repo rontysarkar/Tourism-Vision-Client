@@ -13,7 +13,7 @@ const UpdateData = () => {
 
     const onSubmit = (data) => {
         console.log(data)
-        fetch(`http://localhost:5000/tourists/${params.id}`,{
+        fetch(`https://tourism-vision-server.vercel.app/tourists/${params.id}`,{
             method:"PUT",
             headers:{
                 "content-type": "application/json"

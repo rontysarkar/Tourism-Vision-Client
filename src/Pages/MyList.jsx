@@ -9,7 +9,7 @@ const MyList = () => {
     const { user } = useContext(AuthContext)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myList/${user?.email}`)
+        fetch(`https://tourism-vision-server.vercel.app/myList/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -32,7 +32,7 @@ const MyList = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/myList/${id}`, {
+                fetch(`https://tourism-vision-server.vercel.app/myList/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())

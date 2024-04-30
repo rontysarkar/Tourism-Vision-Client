@@ -1,8 +1,46 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Tourism Vision
 
-Currently, two official plugins are available:
+Visit our website: [Tourism Vision](https://tourism-vision.web.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## About Tourism Vision:
+Tourism Vision is your ultimate guide to explore the world's most captivating destinations. With our curated content and travel expertise, we aim to inspire and facilitate your wanderlust journey. Here's why you should choose Tourism Vision:
+
+
+
+
+
+
+
+- **Discover Unique Destinations**: Explore hidden gems and off-the-beaten-path locations that promise unforgettable experiences.
+  
+- **Expert Travel Tips**: Benefit from insider knowledge and expert tips to make the most out of your travels, from budget-friendly hacks to luxury indulgences.
+  
+- **Cultural Immersion**: Immerse yourself in diverse cultures and traditions as we provide insights into local customs, cuisines, and festivities.
+  
+- **Sustainable Travel Practices**: We advocate for responsible travel by promoting eco-friendly initiatives, community engagement, and ethical tourism practices.
+  
+- **Personalized Recommendations**: Tailored recommendations and itineraries catered to your interests and preferences ensure a truly personalized travel experience.
+
+Start your journey with Tourism Vision and let your wanderlust take flight!
+
+
+
+## B9 A10 Type-01 Requirements
+
+##  Npm package use:
+
+- Lottle React
+- React simple typewriter
+- React Hook form,
+- Swiper slider
+- React tooltip
+
+
+
+
+
+
+
+
+

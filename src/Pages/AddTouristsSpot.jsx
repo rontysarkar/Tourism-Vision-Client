@@ -16,7 +16,7 @@ const AddTouristsSpot = () => {
       console.log(data)
       
 
-      fetch('http://localhost:5000/tourists',{
+      fetch('https://tourism-vision-server.vercel.app/tourists',{
         method:"POST",
         headers:{
             'content-type':'application/json'

@@ -9,7 +9,7 @@ const TouristsSection = () => {
     const [touristsSpots,setTouristsSpots] = useState([])
     
     useEffect(()=>{
-        fetch('http://localhost:5000/tourists')
+        fetch('https://tourism-vision-server.vercel.app/tourists')
         .then(res=>res.json())
         .then(data=>{
             

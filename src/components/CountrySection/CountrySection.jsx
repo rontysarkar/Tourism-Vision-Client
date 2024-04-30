@@ -9,7 +9,7 @@ const CountrySection = () => {
     const [Countries, setCountries] = useState()
    
     useEffect(() => {
-        fetch('http://localhost:5000/Countries')
+        fetch('https://tourism-vision-server.vercel.app/Countries')
             .then(res => res.json())
             .then(data => {
                 setCountries(data)

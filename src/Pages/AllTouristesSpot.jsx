@@ -23,7 +23,7 @@ const AllTouristesSpot = () => {
 
     const handleAscending = () => {
         setDataLoaded(true)
-       fetch('http://localhost:5000/tourists/sort')
+       fetch('https://tourism-vision-server.vercel.app/tourists/sort')
        .then(res=>res.json())
        .then(data=>{
         setAllTouristsSpot(data)

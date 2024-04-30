@@ -17,7 +17,7 @@ const CountrySpotCard = ({spot}) => {
                     <h2 className="text-2xl font-semibold tracking-wide">{spot.tourists_spot_name}</h2>
                     <h3 className="text-xl font-bold flex items-center  gap-2"><span className='text-primary opacity-80'>{spot.country_Name}</span></h3>
                     <p className=" opacity-80">{spot.short_description.slice(0,140)}......</p>
-                    <h1 data-aos='fade-up-right' data-aos-duration='1000' data-aos-delay="800" className='py-2  flex items-center gap-1 font-medium text-xs lg:text-sm '><IoLocationOutline className="text-primary" /> Location : <span >{spot.location}</span></h1>
+                    <h1 data-aos='fade-up-right' data-aos-duration='100'  className='py-2  flex items-center gap-1 font-medium text-xs lg:text-sm '><IoLocationOutline className="text-primary" /> Location : <span >{spot.location}</span></h1>
 
                     <div className='flex flex-col gap-2 lg:flex-row lg:gap-6 '>
                         <h1 className='  flex items-center gap-1 font-medium'><BsCloudSun className="text-primary" />{spot.seasonality}</h1>

@@ -28,7 +28,7 @@ export const router = createBrowserRouter([
       {
         path: '/allTouristsSpot',
         element: <AllTouristesSpot />,
-        loader: ()=> fetch('http://localhost:5000/tourists')
+        loader: ()=> fetch('https://tourism-vision-server.vercel.app/tourists')
 
       },
       {
@@ -51,17 +51,17 @@ export const router = createBrowserRouter([
       {
         path:'/spot/:id',
         element:<PrivetRoutes><ViewDetails/></PrivetRoutes>,
-        loader: ({params})=> fetch(`http://localhost:5000/tourists/${params.id}`)
+        loader: ({params})=> fetch(`https://tourism-vision-server.vercel.app/tourists/${params.id}`)
       },
       {
         path:'/updateData/:id',
         element:<PrivetRoutes><UpdateData/></PrivetRoutes>,
-        loader: ({params})=> fetch(`http://localhost:5000/tourists/${params.id}`)
+        loader: ({params})=> fetch(`https://tourism-vision-server.vercel.app/tourists/${params.id}`)
       },
       {
         path:'/country/:country',
         element:<CountrySpot/>,
-        loader:({params})=>fetch(`http://localhost:5000/Countries/${params.country}`)
+        loader:({params})=>fetch(`https://tourism-vision-server.vercel.app/Countries/${params.country}`)
       }
     ]
   },
