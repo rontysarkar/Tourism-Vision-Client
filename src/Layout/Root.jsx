@@ -2,12 +2,13 @@ import { Outlet, ScrollRestoration } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Toaster } from "react-hot-toast";
-// import { useContext } from "react";
-// import { AuthContext } from "../AuthProvider/AuthProvider";
-// import { HashLoader } from "react-spinners";
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
 
 const Root = () => {
-    // const {loading} = useContext(AuthContext)
+    
     return (
         <div className="font-poppins">
             <ScrollRestoration/>

@@ -2,6 +2,7 @@ import img1 from '../assets/images/image-10.jpg'
 import img2 from '../assets/images/image-12.jpg'
 import img3 from '../assets/images/image-13.jpg'
 import img4 from '../assets/images/image-11.jpg'
+import {  useTypewriter } from 'react-simple-typewriter'
 
 
 // Import Swiper React components
@@ -18,6 +19,15 @@ import 'swiper/css/scrollbar';
 // import required modules
 import { Navigation, Autoplay, Pagination, A11y,  } from 'swiper/modules';
 const Banner = () => {
+
+  const [typeEffect] = useTypewriter({
+    words:['20% off in May','10% off in Jun'],
+    loop:{},
+    typeSpeed:100,
+    delaySpeed:40
+  })
+
+
   return (
     <>
       <Swiper
@@ -35,12 +45,12 @@ const Banner = () => {
 
         <SwiperSlide  >
           <h1 className='absolute text-6xl font-bold top-80 right-[9%]  text-white hidden 2xl:flex '>Maldives<span className='font-normal'>Last Minute</span></h1>
-          <h1 className='absolute text-xl font-bold top-[400px] right-[34%]   text-primary hidden 2xl:flex '>20% off in May</h1>
+          <h1 className='absolute text-xl font-bold top-[400px] right-[34%]   text-primary hidden 2xl:flex '><span>{typeEffect}</span></h1>
           <h1 className='absolute  top-[445px] right-[36%]   btn hidden 2xl:flex rounded-none '>Subscribe</h1>
           <img className='w-full h-[750px] object-cover ' src={img1} alt="" />
         </SwiperSlide>
         <SwiperSlide>
-          <h1 className='absolute text-6xl  top-80 right-[40%]  text-white hidden 2xl:flex font-monoton '>Bast Hotels</h1>
+          <h1 className='absolute text-6xl  top-80 right-[40%]  text-white hidden 2xl:flex font-monoton '>Bast  Hotels</h1>
           <h1 className='absolute text-xl  top-[400px] right-[48%]  text-white hidden 2xl:flex  '>Find your paradise</h1>
           <img className='w-full h-[750px] object-cover' src={img2} alt="" />
         </SwiperSlide>

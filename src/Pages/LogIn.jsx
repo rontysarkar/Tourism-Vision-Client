@@ -7,6 +7,10 @@ import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import { VscEye, VscEyeClosed } from "react-icons/vsc";
 import toast from "react-hot-toast";
 import { HashLoader } from "react-spinners";
+import Lottie from "lottie-react";
+import login from '../assets/login.json'
+
+
 
 const LogIn = () => {
     const { logInUser, signInWithPop, setLoading, loading } = useContext(AuthContext)
@@ -68,9 +72,12 @@ const LogIn = () => {
             {loading && <div className="absolute inset-0  h-screen max-w-[1920px] flex justify-center items-center p-5 "><HashLoader className="" size={200} color="#ff681a" /></div>}
 
             <section className="p-6  mt-10  ">
-                <div className="container grid gap-6 mx-auto text-center lg:grid-cols-2 xl:grid-cols-5 ">
+                <div className="container grid gap-6 mx-auto text-center lg:grid-cols-2 xl:grid-cols-5 items-center ">
 
-                    <img src="https://i.ibb.co/PTcVq8K/Career-in-Travel-and-Tourism.jpg" alt="" className="object-cover w-full rounded-md xl:col-span-3 dark:bg-gray-500" />
+                    {/* <img src="https://i.ibb.co/PTcVq8K/Career-in-Travel-and-Tourism.jpg" alt="" className="object-cover w-full rounded-md xl:col-span-3 dark:bg-gray-500" /> */}
+                    <div className=" w-3/4  rounded-md xl:col-span-3 " >
+                        <Lottie animationData={login} />
+                    </div>
                     <div className="w-full px-6 py-12 rounded-md sm:px-12 md:px-16 xl:col-span-2  space-y-4" >
 
                         <div>

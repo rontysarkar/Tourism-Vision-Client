@@ -3,13 +3,16 @@ import { useEffect, useState } from "react";
 import TouristsCard from "../components/TouristsSection/TouristsCard";
 import { IoIosArrowDown } from "react-icons/io";
 import { useLoaderData } from "react-router-dom";
+import { FadeLoader } from "react-spinners";
 
 const AllTouristesSpot = () => {
+    const [dataLoaded,setDataLoaded] = useState(true)
     const [allTouristsSpot,setAllTouristsSpot] = useState()
     const allTouristsData = useLoaderData()
     
     useEffect(()=>{
         setAllTouristsSpot(allTouristsData)
+        setDataLoaded(false)
     },[])
     
     
@@ -19,11 +22,13 @@ const AllTouristesSpot = () => {
     
 
     const handleAscending = () => {
+        setDataLoaded(true)
        fetch('http://localhost:5000/tourists/sort')
        .then(res=>res.json())
        .then(data=>{
         setAllTouristsSpot(data)
         console.log(data)
+        setDataLoaded(false)
        })
     }
 
@@ -32,6 +37,9 @@ const AllTouristesSpot = () => {
 
     return (
         <div className="xl:px-32">
+            {
+                dataLoaded && <div className="absolute inset-0 bg-white/50 h-screen max-w-[1920px] flex justify-center items-center p-5 "><FadeLoader className="" size={200} color="#ff681a" /></div>
+            }
             <div className="text-center my-8" >
                 <h1 className=" font-bold text-4xl">All Popular Tourists Spot</h1>
                 <p className="my-2 2xl:px-80 opacity-90 text-sm">Explore iconic landmarks and hidden gems with our Popular Tour Package! Immerse yourself in vibrant cultures, savor local cuisines, and create unforgettable memories as you journey through captivating destinations curated to offer the perfect blend of adventure and relaxation</p>

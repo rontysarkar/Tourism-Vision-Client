@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { BookingCard } from "./BookingCard";
 import { useEffect, useState } from "react";
-
+import 'react-tooltip/dist/react-tooltip.css'
 
 
 const TouristsSection = () => {

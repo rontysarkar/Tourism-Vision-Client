@@ -6,12 +6,14 @@ import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import toast from "react-hot-toast";
 import { VscEye, VscEyeClosed } from "react-icons/vsc";
 import { HashLoader } from "react-spinners";
+import Lottie from "lottie-react";
+import registerAi from '../assets/register.json'
 
 const Register = () => {
     const [registerError, setRegisterError] = useState('')
     const [keyValue, setKeyValue] = useState('')
     const [toggleEye, setToggleEye] = useState(false)
-    const { createAccount, signInWithPop, userProfileUpdate, setUser,setLoading,loading } = useContext(AuthContext)
+    const { createAccount, signInWithPop, userProfileUpdate, setUser, setLoading, loading } = useContext(AuthContext)
 
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
@@ -22,7 +24,7 @@ const Register = () => {
     const { register, handleSubmit } = useForm()
 
     const onSubmit = (data) => {
-        
+
         setRegisterError('')
         // console.log(data.password.length)
         if (data.password.length < 6) {
@@ -89,12 +91,16 @@ const Register = () => {
 
     return (
         <div className="grid items-center min-h-[calc(100vh-200px)]">
-            {loading && <div className="absolute inset-0  h-screen max-w-[1920px] flex justify-center items-center p-5 "><HashLoader className="" size={200} color="#ff681a" /></div> }
+            {loading && <div className="absolute inset-0  h-screen max-w-[1920px] flex justify-center items-center p-5 "><HashLoader className="" size={200} color="#ff681a" /></div>}
             <section className="p-6   mt-10  ">
                 <div className="container grid gap-6 mx-auto text-center lg:grid-cols-2 xl:grid-cols-5 ">
 
-                    <img src="https://i.ibb.co/ZVx3dGx/depositphotos-114341588-stock-illustration-vacation-and-travel.webp" alt="" className="object-cover w-full rounded-md xl:col-span-3 dark:bg-gray-500 mt-10" />
+                    {/* <img src="https://i.ibb.co/ZVx3dGx/depositphotos-114341588-stock-illustration-vacation-and-travel.webp" alt="" className="object-cover w-full rounded-md xl:col-span-3 dark:bg-gray-500 mt-10" /> */}
+                    <div className="w-full  xl:col-span-3  mt-10">
+                        <Lottie animationData={registerAi} />
+                    </div>
                     <div className="w-full px-6 py-10 rounded-md sm:px-12 md:px-16 xl:col-span-2  space-y-2" >
+
 
                         <div>
                             <h1 className="text-3xl font-extrabold text-start pb-2 d">Create Account </h1>
@@ -126,7 +132,7 @@ const Register = () => {
                                 </label>
                                 <input {...register("password",)} onChange={e => { setKeyValue(e.target.value) }} type={toggleEye ? 'text' : "password"} placeholder="Password" className=" w-full  rounded-md focus:ring focus:dark:ring-violet-600 dark:border-gray-300 h-14 px-4 " />
                                 {
-                                    keyValue && <> { toggleEye ?  <VscEyeClosed onClick={() => setToggleEye(false)} className="text-2xl absolute top-12 right-5" /> : <VscEye onClick={() => setToggleEye(true)} className="text-2xl absolute top-12 right-5" /> }  </>
+                                    keyValue && <> {toggleEye ? <VscEyeClosed onClick={() => setToggleEye(false)} className="text-2xl absolute top-12 right-5" /> : <VscEye onClick={() => setToggleEye(true)} className="text-2xl absolute top-12 right-5" />}  </>
                                 }
                             </div>
                             {

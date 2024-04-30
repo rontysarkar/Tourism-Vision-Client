@@ -13,12 +13,12 @@ const TouristsCard = ({spot}) => {
 
             <div className="flex flex-col justify-between p-6 space-y-8">
                 <div className="space-y-2">
-                    <h2 className="text-2xl font-semibold tracking-wide">{spot.tourists_spot_name}</h2>
-                    <h3 className="text-xl font-bold flex items-center  gap-2"><span className='text-primary opacity-80'>{spot.country_Name}</span></h3>
-                    <p className=" opacity-80">{spot.short_description.slice(0,140)}......</p>
-                    <h1 data-aos='fade-up-right' data-aos-duration='1000' data-aos-delay="800" className='py-2  flex items-center gap-1 font-medium text-xs lg:text-sm '><IoLocationOutline className="text-primary" /> Location : <span >{spot.location}</span></h1>
+                    <h2 data-aos='fade-right' data-aos-duration='1000' data-aos-delay="200"  className="text-2xl font-semibold tracking-wide">{spot.tourists_spot_name}</h2>
+                    <h3 data-aos='fade-right' data-aos-duration='1000' data-aos-delay="400" className="text-xl font-bold flex items-center  gap-2"><span className='text-primary opacity-80'>{spot.country_Name}</span></h3>
+                    <p data-aos='fade-right' data-aos-duration='1000' data-aos-delay="600" className=" opacity-80">{spot.short_description.slice(0,140)}......</p>
+                    <h1 data-aos='fade-right' data-aos-duration='1000' data-aos-delay="800" className='py-2  flex items-center gap-1 font-medium text-xs lg:text-sm '><IoLocationOutline className="text-primary" /> Location : <span >{spot.location}</span></h1>
 
-                    <div className='flex flex-col gap-2 lg:flex-row lg:gap-6 '>
+                    <div data-aos='fade-right' data-aos-duration='1000' data-aos-delay="1000"  className='flex flex-col gap-2 lg:flex-row lg:gap-6 '>
                         <h1 className='  flex items-center gap-1 font-medium'><BsCloudSun className="text-primary" />{spot.seasonality}</h1>
                         <h1 className='font-medium flex items-center gap-1 pl-1'><MdPersonPin className="text-primary" />{spot.totalVisitorsPerYear}</h1>
                         <h4 className='font-semibold flex items-center gap-1   '><IoMdTimer className="text-primary" /><span>{spot.travel_time}</span></h4>
